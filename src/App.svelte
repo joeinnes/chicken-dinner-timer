@@ -31,7 +31,7 @@
 	}
 </script>
 
-<article style="--levitate: 8; --bg: white; --p: 0.5rem; --p-md:2rem; --br: 0.5rem; --mx: auto; --maxw: 60ch;">
+<article style="--levitate: 8; --bg: white; --p:2rem; --br: 0.5rem; --mx: auto; --maxw: 60ch;">
   <h1>Chicken Dinner Timer</h1>
   <label>Weight of chicken (in grams):
     <input type="numeric" bind:value={chickenWeight} />
@@ -40,7 +40,7 @@
       <input type="time" bind:value={cookStart} />
   </label>
 
-  <label>Making Yorkshire Puddings?
+  <label>Making Yorkshire Puddings?<br />
     <input type="radio" checked/> Yes
     <input type="radio" on:click|preventDefault={(e) => alert('Well you bloody should be')} /> No
   </label>
