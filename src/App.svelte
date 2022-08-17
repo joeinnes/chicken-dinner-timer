@@ -31,6 +31,7 @@
 	}
 </script>
 
+<article style="--levitate: 8; --bg: white; --p: 2rem; --br: 0.5rem;">
 <h1>Chicken Dinner Timer</h1>
 <label>Weight of chicken (in grams):
 	<input type="numeric" bind:value={chickenWeight} />
@@ -55,3 +56,4 @@
 		</li>
 	{/each}
 </ul>
+</article>
