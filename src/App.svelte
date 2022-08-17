@@ -31,29 +31,29 @@
 	}
 </script>
 
-<article style="--levitate: 8; --bg: white; --p: 2rem; --br: 0.5rem;">
-<h1>Chicken Dinner Timer</h1>
-<label>Weight of chicken (in grams):
-	<input type="numeric" bind:value={chickenWeight} />
-</label>
-<label>Cook start time:
-		<input type="time" bind:value={cookStart} />
-</label>
+<article style="--levitate: 8; --bg: white; --p: 2rem; --br: 0.5rem; --mx: auto; --maxw: 60ch;">
+  <h1>Chicken Dinner Timer</h1>
+  <label>Weight of chicken (in grams):
+    <input type="numeric" bind:value={chickenWeight} />
+  </label>
+  <label>Cook start time:
+      <input type="time" bind:value={cookStart} />
+  </label>
 
-<label>Making Yorkshire Puddings?
-	<input type="radio" checked/> Yes
-	<input type="radio" on:click|preventDefault={(e) => alert('Well you bloody should be')} /> No
-</label>
+  <label>Making Yorkshire Puddings?
+    <input type="radio" checked/> Yes
+    <input type="radio" on:click|preventDefault={(e) => alert('Well you bloody should be')} /> No
+  </label>
 
-<ul>
-	{#each Object.keys(times).sort() as time}
-		<li>{addTime(cookStartTimestamp, time).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} ({time} minutes in)
-			<ul>
-				{#each times[time] as activity}
-					<li>{activity}</li>
-				{/each}
-			</ul>
-		</li>
-	{/each}
-</ul>
+  <ul>
+    {#each Object.keys(times).sort() as time}
+      <li>{addTime(cookStartTimestamp, time).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} ({time} minutes in)
+        <ul>
+          {#each times[time] as activity}
+            <li>{activity}</li>
+          {/each}
+        </ul>
+      </li>
+    {/each}
+  </ul>
 </article>
