@@ -31,7 +31,7 @@
 	}
 </script>
 
-<article style="--levitate: 8; --bg: white; --p: 2rem; --br: 0.5rem; --mx: auto; --maxw: 60ch;">
+<article style="--levitate: 8; --bg: white; --p: 0.5rem; --p-md:2rem; --br: 0.5rem; --mx: auto; --maxw: 60ch;">
   <h1>Chicken Dinner Timer</h1>
   <label>Weight of chicken (in grams):
     <input type="numeric" bind:value={chickenWeight} />
