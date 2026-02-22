@@ -4,10 +4,10 @@
 	let chickenWeight = 1500;
 	let times = {};
 	let chickenReadyTime = 0;
-	let cookStart = `${new Date().getHours()}:${new Date().getMinutes()}`;
+	let cookStart = `${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`;
 	let cookStartTimestamp = new Date();
 	const addTime = (timeFromInput, amount) => {
-		return new Date(cookStartTimestamp.getTime() + (amount * 60000))
+		return new Date(timeFromInput.getTime() + (amount * 60000))
 	}
 	
 	$: {
@@ -25,8 +25,7 @@
 		times[chickenReadyTime - 75] = ['Peel and chop potatoes'];
 		const [hours, minutes] = cookStart.split(':')
 		let tempCookStart = new Date()
-		tempCookStart.setHours(hours);
-		tempCookStart.setMinutes(minutes);
+		tempCookStart.setHours(parseInt(hours), parseInt(minutes), 0, 0);
 		cookStartTimestamp = tempCookStart;
 	}
 </script>
@@ -34,19 +33,19 @@
 <article style="--levitate: 8; --bg: white; --p:2rem; --br: 0.5rem; --mx: auto; --maxw: 60ch;">
   <h1>Chicken Dinner Timer</h1>
   <label>Weight of chicken (in grams):
-    <input type="numeric" bind:value={chickenWeight} />
+    <input type="number" bind:value={chickenWeight} />
   </label>
   <label>Cook start time:
       <input type="time" bind:value={cookStart} />
   </label>
 
   <label>Making Yorkshire Puddings?<br />
-    <input type="radio" checked/> Yes
-    <input type="radio" on:click|preventDefault={(e) => alert('Well you bloody should be')} /> No
+    <input type="radio" name="yorkshires" checked/> Yes
+    <input type="radio" name="yorkshires" on:click|preventDefault={(e) => alert('Well you bloody should be')} /> No
   </label>
 
   <ul>
-    {#each Object.keys(times).sort() as time}
+    {#each Object.keys(times).sort((a, b) => Number(a) - Number(b)) as time}
       <li>{addTime(cookStartTimestamp, time).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} ({time} minutes in)
         <ul>
           {#each times[time] as activity}
