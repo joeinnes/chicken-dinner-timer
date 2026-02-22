@@ -25,8 +25,7 @@
 		times[chickenReadyTime - 75] = ['Peel and chop potatoes'];
 		const [hours, minutes] = cookStart.split(':')
 		let tempCookStart = new Date()
-		tempCookStart.setHours(hours);
-		tempCookStart.setMinutes(minutes);
+		tempCookStart.setHours(parseInt(hours), parseInt(minutes), 0, 0);
 		cookStartTimestamp = tempCookStart;
 	}
 </script>
@@ -41,8 +40,8 @@
   </label>
 
   <label>Making Yorkshire Puddings?<br />
-    <input type="radio" checked/> Yes
-    <input type="radio" on:click|preventDefault={(e) => alert('Well you bloody should be')} /> No
+    <input type="radio" name="yorkshires" checked/> Yes
+    <input type="radio" name="yorkshires" on:click|preventDefault={(e) => alert('Well you bloody should be')} /> No
   </label>
 
   <ul>
