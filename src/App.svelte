@@ -33,7 +33,7 @@
 <article style="--levitate: 8; --bg: white; --p:2rem; --br: 0.5rem; --mx: auto; --maxw: 60ch;">
   <h1>Chicken Dinner Timer</h1>
   <label>Weight of chicken (in grams):
-    <input type="number" bind:value={chickenWeight} />
+    <input type="number" bind:value={chickenWeight} min="1" />
   </label>
   <label>Cook start time:
       <input type="time" bind:value={cookStart} />
@@ -46,7 +46,7 @@
 
   <ul>
     {#each Object.keys(times).sort((a, b) => Number(a) - Number(b)) as time}
-      <li>{addTime(cookStartTimestamp, time).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} ({time} minutes in)
+      <li>{addTime(cookStartTimestamp, Number(time)).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} ({time} minutes in)
         <ul>
           {#each times[time] as activity}
             <li>{activity}</li>

@@ -2,20 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍗</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chicken Dinner Planner</title>
+    <title>Chicken Dinner Timer</title>
+    <style>
+      body {
+        --p: 1rem;
+        --p-md: 4rem;
+        --w: 100%;
+        background: #f5ede0;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+      }
+    </style>
   </head>
-  <body
-    style="
-      --p: 1rem;
---p-md:4rem;
-      background-image: url('https://source.unsplash.com/random?roast%20chicken');
-      background-size: cover;
-      background-repeat: no-repeat;
-      --w: 100%;
-    "
-  >
+  <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
